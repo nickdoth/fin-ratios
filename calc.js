@@ -23,31 +23,31 @@ function calculate(d) {
     
     // ### Liquidity Ratios ###
     // 当前流动性比率
-    r.currentLiquidityRatio = d.ca / d.cl;
+    r['Current Liquidity Ratio'] = d.ca / d.cl;
     // 速动比率
-    r.qucikRatio = (d.ca - d.iv) / d.cl;
+    r['Qucik Ratio'] = (d.ca - d.iv) / d.cl;
     // 应收款比率
-    r.accountRecievableTurnover = d.sale / d.ar;
-    r.averageCollectionPeriod = d.ar / d.ds; // 周期
+    r['Account Recievable Turnover'] = d.sale / d.ar;
+    r['Average Collection Period'] = d.ar / d.ds; // 周期
     // 库存成交量
-    r.inventoryTurnover = d.cg / d.iv; // in units
-    r.inventoryTurnoverAlt = d.sale / d.iv; // in dollars
+    r['Inventory Turnover (in units)'] = d.cg / d.iv; // in units
+    r['InventoryTurnover (in dollars)'] = d.sale / d.iv; // in dollars
     
     // ### Profitability Ratios ###
     // 利润幅度
-    r.profitMargin = d.oi / d.sale;
+    r['Profit Margin'] = d.oi / d.sale;
     // 毛利幅度
-    r.grossProfitMargin = (d.sale - d.cg) / d.sale;
+    r['Gross Profit Margin'] = (d.sale - d.cg) / d.sale;
     // Asset Turnover (External)
-    r.assetTurnover = d.sale / d.ta;
+    r['Asset Turnover'] = d.sale / d.ta;
     // ROI 投资回报率
-    r.roi = r.assetTurnover * r.profitMargin;
+    r['ROI'] = r['Asset Turnover'] * r['Profit Margin'];
     // ROE 净资产收益率
-    r.roe = d.ni / d.te;
+    r['ROE'] = d.ni / d.te;
     // Earning Power 获利能力
-    r.earningPower = d.ni / d.ta;
+    r['Earning Power'] = d.ni / d.ta;
     // 利息保障倍数
-    r.timesInterestEarned = d.oi / d.inter;
+    r['Times Interest Earned'] = d.oi / d.inter;
     
     return r;
 }

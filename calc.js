@@ -61,8 +61,8 @@ function calculateCN(d) {
     // 速动比率
     r['速动比率'] = (d.ca - d.iv) / d.cl;
     // 应收款比率
-    r['应收款比率'] = d.sale / d.ar;
-    r['应收款比率 (周期)'] = d.ar / d.ds; // 周期
+    r['应收账款周转率'] = d.sale / d.ar;
+    r['应收账款周转天数'] = d.ar / d.ds; // 周期
     // 库存成交量
     r['库存成交量 in units'] = d.cg / d.iv; // in units
     r['库存成交量 in dollars'] = d.sale / d.iv; // in dollars

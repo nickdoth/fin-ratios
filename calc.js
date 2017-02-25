@@ -73,9 +73,9 @@ function calculateCN(d) {
     // 毛利幅度
     r['毛利幅度'] = (d.sale - d.cg) / d.sale;
     // Asset Turnover (External)
-    r['Asset Turnover (External)'] = d.sale / d.ta;
+    r['资产回报 (外部)'] = d.sale / d.ta;
     // ROI 投资回报率
-    r['ROI 投资回报率'] = r.AssetTurnover * r.利润幅度;
+    r['ROI 投资回报率'] = r['资产回报 (外部)'] * r.利润幅度;
     // ROE 净资产收益率
     r['ROE 净资产收益率'] = d.ni / d.te;
     // Earning Power 获利能力

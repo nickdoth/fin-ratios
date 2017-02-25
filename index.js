@@ -50,7 +50,7 @@ jsdom.env({
 function json2csv(obj) {
     let csvLines = [];
 
-    csvLines.push(`Ratios of ${process.argv[2].toLowerCase()},` + Object.keys(obj).join(','));
+    csvLines.push(`Ratios of ${process.argv[2].toUpperCase()},` + Object.keys(obj).join(','));
 
     let vals = Object.keys(obj).map(k => obj[k]);
 

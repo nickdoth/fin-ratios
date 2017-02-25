@@ -25,7 +25,7 @@ function calculate(d) {
     // 当前流动性比率
     r['Current Liquidity Ratio'] = d.ca / d.cl;
     // 速动比率
-    r['Qucik Ratio'] = (d.ca - d.iv) / d.cl;
+    r['Quick Ratio'] = (d.ca - d.iv) / d.cl;
     // 应收款比率
     r['Account Recievable Turnover'] = d.sale / d.ar;
     r['Average Collection Period'] = d.ar / d.ds; // 周期

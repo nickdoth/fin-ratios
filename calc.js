@@ -7,15 +7,15 @@ let knowledge = {
     tiv  :  'Total Inventory',                       // -
     oca  :  'Other Current Assets, Total',           // -
     iv   :  d => d.tiv + d.oca,                      // Inventories (由上述两项相加得到.Why?)
-    sale :  'Revenue',                               // Sales (存疑)
+    sale :  'Revenue',                               // Sales
     ar   :  'Accounts Receivable - Trade, Net',      // Accounts Receivable
-    ds   :  d => d.sale / 365,                       // Daily Sales (存疑)
+    ds   :  d => d.sale / 365,                       // Daily Sales
     cg   :  'Cost of Revenue, Total',                // Cost of goods sold
     oi   :  'Operating Income',                      // Operating Income or EBIT
     ta   :  'Total Assets',                          // Total Assets
     te   :  'Total Equity',                          // Total Equity
     ni   :  'Net Income',                            // Net Income
-    inter: 'Selling/General/Admin. Expenses, Total'  // Interests (严重存疑)
+    // inter: 'Selling/General/Admin. Expenses, Total'  // Interests
 };
 
 function calculate(d) {
@@ -47,7 +47,7 @@ function calculate(d) {
     // Earning Power 获利能力
     r['Earning Power'] = d.ni / d.ta;
     // 利息保障倍数
-    r['Times Interest Earned'] = d.oi / d.inter;
+    // r['Times Interest Earned'] = d.oi / d.inter;
     
     return r;
 }
@@ -81,7 +81,7 @@ function calculateCN(d) {
     // Earning Power 获利能力
     r['Earning Power 获利能力'] = d.ni / d.ta;
     // 利息保障倍数
-    r['利息保障倍数'] = d.oi / d.inter;
+    // r['利息保障倍数'] = d.oi / d.inter;
     
     return r;
 }

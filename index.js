@@ -41,8 +41,22 @@ jsdom.env({
         });
 
         // console.log(ann);
-        console.log(JSON.stringify(results, null, 4));
+        console.log(json2csv(results, null, 4));
 
         function $(s) { return document.querySelector(s); }
     }
 });
+
+function json2csv(obj) {
+    let csvLines = [];
+
+    csvLines.push('Ratios,' + Object.keys(obj).join(','));
+
+    let vals = Object.keys(obj).map(k => obj[k]);
+
+    Object.keys(vals[0]).forEach(fieldName => {
+        csvLines.push(fieldName + ',' + vals.map(v => v[fieldName]).join(','));
+    });
+
+    return csvLines.join('\r\n');
+}

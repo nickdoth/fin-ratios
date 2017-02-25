@@ -40,8 +40,8 @@ jsdom.env({
             results[year] = createCalculation(ann[year]);
         });
 
-        // console.log(ann);
-        console.log(json2csv(results, null, 4));
+        // process.stdout.write(json2csv(ann));
+        process.stdout.write(json2csv(results));
 
         function $(s) { return document.querySelector(s); }
     }
@@ -50,12 +50,12 @@ jsdom.env({
 function json2csv(obj) {
     let csvLines = [];
 
-    csvLines.push(`Ratios of ${process.argv[2].toUpperCase()},` + Object.keys(obj).join(','));
+    csvLines.push(`"Ratios of ${process.argv[2].toUpperCase()}",` + Object.keys(obj).join(','));
 
     let vals = Object.keys(obj).map(k => obj[k]);
 
     Object.keys(vals[0]).forEach(fieldName => {
-        csvLines.push(fieldName + ',' + vals.map(v => v[fieldName]).join(','));
+        csvLines.push(`"${fieldName}",` + vals.map(v => v[fieldName]).join(','));
     });
 
     return csvLines.join('\r\n');

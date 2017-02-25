@@ -18,41 +18,41 @@ let knowledge = {
     inter: 'Selling/General/Admin. Expenses, Total'  // Interests (严重存疑)
 };
 
-// function calculate(d) {
-//     let r = {};
-    
-//     // ### Liquidity Ratios ###
-//     // 当前流动性比率
-//     r.currentLiquidityRatio = d.ca / d.cl;
-//     // 速动比率
-//     r.qucikRatio = (d.ca - d.iv) / d.cl;
-//     // 应收款比率
-//     r.accountRecievableTurnover = d.sale / d.ar;
-//     r.averageCollectionPeriod = d.ar / d.ds; // 周期
-//     // 库存成交量
-//     r.inventoryTurnover = d.cg / d.iv; // in units
-//     r.inventoryTurnoverAlt = d.sale / d.iv; // in dollars
-    
-//     // ### Profitability Ratios ###
-//     // 利润幅度
-//     r.profitMargin = d.oi / d.sale;
-//     // 毛利幅度
-//     r.grossProfitMargin = (d.sale - d.cg) / d.sale;
-//     // Asset Turnover (External)
-//     r.assetTurnover = d.sale / d.ta;
-//     // ROI 投资回报率
-//     r.roi = r.assetTurnover * r.profitMargin;
-//     // ROE 净资产收益率
-//     r.roe = d.ni / d.te;
-//     // Earning Power 获利能力
-//     r.earningPower = d.ni / d.ta;
-//     // 利息保障倍数
-//     r.timesInterestEarned = d.oi / d.inter;
-    
-//     return r;
-// }
-
 function calculate(d) {
+    let r = {};
+    
+    // ### Liquidity Ratios ###
+    // 当前流动性比率
+    r.currentLiquidityRatio = d.ca / d.cl;
+    // 速动比率
+    r.qucikRatio = (d.ca - d.iv) / d.cl;
+    // 应收款比率
+    r.accountRecievableTurnover = d.sale / d.ar;
+    r.averageCollectionPeriod = d.ar / d.ds; // 周期
+    // 库存成交量
+    r.inventoryTurnover = d.cg / d.iv; // in units
+    r.inventoryTurnoverAlt = d.sale / d.iv; // in dollars
+    
+    // ### Profitability Ratios ###
+    // 利润幅度
+    r.profitMargin = d.oi / d.sale;
+    // 毛利幅度
+    r.grossProfitMargin = (d.sale - d.cg) / d.sale;
+    // Asset Turnover (External)
+    r.assetTurnover = d.sale / d.ta;
+    // ROI 投资回报率
+    r.roi = r.assetTurnover * r.profitMargin;
+    // ROE 净资产收益率
+    r.roe = d.ni / d.te;
+    // Earning Power 获利能力
+    r.earningPower = d.ni / d.ta;
+    // 利息保障倍数
+    r.timesInterestEarned = d.oi / d.inter;
+    
+    return r;
+}
+
+function calculateCN(d) {
     let r = {};
     
     // ### Liquidity Ratios ###
@@ -86,7 +86,8 @@ function calculate(d) {
     return r;
 }
 
-function createCalculation(annData) {
+let en = calculate;
+function createCalculation(annData, calculate = en) {
     let d = {};
     Object.keys(knowledge).forEach(k => {
         let fieldName = knowledge[k];
@@ -103,3 +104,7 @@ function createCalculation(annData) {
 }
 
 module.exports = createCalculation;
+createCalculation.methods = {
+    en: calculate,
+    cn: calculateCN
+}

@@ -100,7 +100,16 @@ function createCalculation(annData, calculate = en) {
         d[k] = annData[fieldName];
     });
     
-    return calculate(d);
+    return fix(calculate(d), 2);
+}
+
+function fix(obj, f) {
+    Object.keys(obj).forEach(k => {
+        if (!obj[k]) return;
+        obj[k] = Number(obj[k].toFixed(f));
+    });
+
+    return obj;
 }
 
 module.exports = createCalculation;

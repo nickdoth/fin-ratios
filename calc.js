@@ -31,7 +31,7 @@ function calculate(d) {
     r['Average Collection Period'] = d.ar / d.ds; // 周期
     // 库存成交量
     r['Inventory Turnover (in units)'] = d.cg / d.iv; // in units
-    r['InventoryTurnover (in dollars)'] = d.sale / d.iv; // in dollars
+    r['Inventory Turnover (in dollars)'] = d.sale / d.iv; // in dollars
     
     // ### Profitability Ratios ###
     // 利润幅度

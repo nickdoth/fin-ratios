@@ -27,7 +27,7 @@ function calculate(d) {
     // 速动比率
     r['Quick Ratio'] = (d.ca - d.iv) / d.cl;
     // 应收款比率
-    r['Account Recievable Turnover'] = d.sale / d.ar;
+    r['Account Receivable Turnover'] = d.sale / d.ar;
     r['Average Collection Period'] = d.ar / d.ds; // 周期
     // 库存成交量
     r['Inventory Turnover (in units)'] = d.cg / d.iv; // in units
@@ -112,8 +112,9 @@ function fix(obj, f) {
     return obj;
 }
 
-module.exports = createCalculation;
-createCalculation.methods = {
-    en: calculate,
-    cn: calculateCN
-}
+module.exports = Object.assign(createCalculation, {
+    methods: {
+        en: calculate,
+        cn: calculateCN
+    }
+});

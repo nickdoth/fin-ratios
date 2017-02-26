@@ -4,9 +4,8 @@ let knowledge = {
 //变量名称    Google Finance 对应名称                      教材上的名称 (备注)
     ca   :  'Total Current Assets',                  // Current Assets
     cl   :  'Total Current Liabilities',             // Current Liabilities
-    tiv  :  'Total Inventory',                       // -
-    oca  :  'Other Current Assets, Total',           // -
-    iv   :  d => d.tiv + d.oca,                      // Inventories (由上述两项相加得到.Why?)
+    iv  :  'Total Inventory',                       // Inventories
+    oca  :  'Other Current Assets, Total',           // - (OCA)
     sale :  'Revenue',                               // Sales
     ar   :  'Accounts Receivable - Trade, Net',      // Accounts Receivable
     ds   :  d => d.sale / 365,                       // Daily Sales
@@ -25,7 +24,7 @@ function calculate(d) {
     // 当前流动性比率
     r['Current Liquidity Ratio'] = d.ca / d.cl;
     // 速动比率
-    r['Quick Ratio'] = (d.ca - d.iv) / d.cl;
+    r['Quick Ratio'] = (d.ca - d.iv - d.oca) / d.cl;
     // 应收款比率
     r['Account Receivable Turnover'] = d.sale / d.ar;
     r['Average Collection Period'] = d.ar / d.ds; // 周期

@@ -4,7 +4,7 @@ let knowledge = {
 //变量名称    Google Finance 对应名称                      教材上的名称 (备注)
     ca   :  'Total Current Assets',                  // Current Assets
     cl   :  'Total Current Liabilities',             // Current Liabilities
-    iv  :  'Total Inventory',                       // Inventories
+    iv   :  'Total Inventory',                       // Inventories
     oca  :  'Other Current Assets, Total',           // - (OCA)
     sale :  'Revenue',                               // Sales
     ar   :  'Accounts Receivable - Trade, Net',      // Accounts Receivable

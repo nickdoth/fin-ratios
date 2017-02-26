@@ -1,6 +1,6 @@
 'use strict';
 
-let knowledge = {
+let terms = {
 //  vars    Google Finance Terms                     Terms in lecture materials
     ca   :  'Total Current Assets',                  // Current Assets
     cl   :  'Total Current Liabilities',             // Current Liabilities
@@ -88,10 +88,10 @@ function calculateCN(d) {
 let en = calculate;
 function createCalculation(annData, calculate = en) {
     let d = {};
-    Object.keys(knowledge).forEach(k => {
-        let fieldName = knowledge[k];
-        if (typeof knowledge[k] === 'function') {
-            d[k] = knowledge[k](d);
+    Object.keys(terms).forEach(k => {
+        let fieldName = terms[k];
+        if (typeof terms[k] === 'function') {
+            d[k] = terms[k](d);
             return;
         }
         if (!annData[fieldName])

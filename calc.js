@@ -1,7 +1,7 @@
 'use strict';
 
 let knowledge = {
-//变量名称    Google Finance 对应名称                      教材上的名称 (备注)
+//  vars    Google Finance Terms                     Terms in lecture materials
     ca   :  'Total Current Assets',                  // Current Assets
     cl   :  'Total Current Liabilities',             // Current Liabilities
     iv   :  'Total Inventory',                       // Inventories

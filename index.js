@@ -15,7 +15,9 @@ jsdom.env({
                 let fieldName = tr.querySelector('td.lft').textContent.trim();
                 
                 Array.from(tr.querySelectorAll('td.r')).forEach((td, i) => {
-                    let number = Number(td.textContent.replace(',', ''));
+                    let numLike = td.textContent.replace(',', '').trim();
+                    // TODO: We are failing to ensure whether '-' means 0 or lack of data (NaN).
+                    let number = Number(numLike === '-' ? NaN : numLike);
                     let yearName = years[i];
                     if (!obj[yearName]) obj[yearName] = {};
                     obj[yearName][fieldName] = number;
@@ -55,7 +57,7 @@ function json2csv(obj) {
     let vals = Object.keys(obj).map(k => obj[k]);
 
     Object.keys(vals[0]).forEach(fieldName => {
-        csvLines.push(`"${fieldName}",` + vals.map(v => v[fieldName]).join(','));
+        csvLines.push(`"${fieldName}",` + vals.map(v => v[fieldName] || '-').join(','));
     });
 
     return csvLines.join('\r\n');

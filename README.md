@@ -1,6 +1,6 @@
 # fin-ratios
 
-Calculate annual financial analysis data from Google Finance.
+Calculate annual financial analysis data from Google Finance, and generate CSV-formatted result.
 
 ```shell
   # Download & Install
